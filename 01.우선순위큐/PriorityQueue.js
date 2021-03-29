@@ -20,7 +20,7 @@ class PriorityQueue {
     let index = this.heap.length - 1
     const lastInsertedNode = this.heap[index]
 
-    // 마지막 삽입 인덱스가 루트노드 (0) 이 될때까지 반복한다.
+    // 인덱스가 루트노드 (0) 이 될때까지 반복한다.
     while (index > 0) {
       const parentIndex = this.getParentIndex(index)
 
