@@ -17,24 +17,24 @@ class PriorityQueue {
   }
 
   heapifyUp = () => {
-    let lastInsertedIndex = this.heap.length - 1
-    const lastInsertedNode = this.heap[lastInsertedIndex]
+    let index = this.heap.length - 1
+    const lastInsertedNode = this.heap[index]
 
     // 마지막 삽입 인덱스가 루트노드 (0) 이 될때까지 반복한다.
-    while (lastInsertedIndex > 0) {
-      const parentIndex = this.getParentIndex(lastInsertedIndex)
+    while (index > 0) {
+      const parentIndex = this.getParentIndex(index)
 
       // 마지막으로 삽입된 key 값이 부모요소보다 크면 더이상 변경할 필요가 없다.
       if (this.heap[parentIndex].key <= lastInsertedNode.key) break
 
       // 부모 노드의 key 값이 크다면 부모를 아래로 내린다.
-      this.heap[lastInsertedIndex] = this.heap[parentIndex]
-      lastInsertedIndex = parentIndex
+      this.heap[index] = this.heap[parentIndex]
+      index = parentIndex
     }
 
     // break되어 마지막으로 삽입된 노드가 자신의 자리에 위치하게 됨.
-    // lastInsertedIndex가 가장 마지막에 찾아진 곳이므로 여기에 해당 노드가 들어간다.
-    this.heap[lastInsertedIndex] = lastInsertedNode
+    // index가 가장 마지막에 찾아진 곳이므로 여기에 해당 노드가 들어간다.
+    this.heap[index] = lastInsertedNode
   }
 
   pop = () => {
