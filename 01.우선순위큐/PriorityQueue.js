@@ -7,6 +7,8 @@ class PriorityQueue {
   getRightChildIndex = (parentIndex) => parentIndex * 2 + 2
   getParentIndex = (childIndex) => Math.floor((childIndex - 1) / 2)
 
+  length = () => this.heap.length
+
   peek = () => this.heap[0]
 
   // 요소를 넣고 min heap구조로 만든다.
