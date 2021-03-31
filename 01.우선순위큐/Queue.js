@@ -1,3 +1,10 @@
+class Node {
+  constructor(value) {
+    this.next = null
+    this.value = value
+  }
+}
+
 class Queue {
   constructor() {
     this.head = null
@@ -5,38 +12,31 @@ class Queue {
     this.size = 0
   }
 
-  length() {
-    return this.size
-  }
-
-  push(item) {
-    const node = { item, next: null }
-    if (this.head === null) {
+  push(value) {
+    let node = new Node(value)
+    if (this.size == 0) {
       this.head = node
-      this.head.next = this.tail
     } else {
       this.tail.next = node
     }
-
     this.tail = node
-    this.size += 1
+    this.size++
   }
 
   popLeft() {
-    const popedItem = this.head
-
-    if (popedItem === null) return null
-
+    if (this.size == 0) {
+      return null
+    }
+    let value = this.head.value
     this.head = this.head.next
-    this.size -= 1
-    return popedItem.item
+    this.size--
+    if (this.size == 0) {
+      this.tail = null
+    }
+    return value
   }
 
-  print() {
-    let current = this.head
-    while (current) {
-      console.log(current.item)
-      current = current.next
-    }
+  isEmpty() {
+    return this.size == 0
   }
 }
