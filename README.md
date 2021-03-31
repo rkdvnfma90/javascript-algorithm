@@ -1,19 +1,34 @@
 # 자바스크립트 자료구조 & 알고리즘
 
-## 파이썬의 input 처럼 입력받기
+## 여러줄 입력
 
 ```javascript
-const fs = require('fs')
-const stdin = fs.readFileSync('/dev/stdin').toString().split('\n')
+const readline = require('readline')
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+})
 
-const input = (() => {
-  let line = 0
-  return () => stdin[line++]
-})()
+let graph = []
+let [n, m] = [null, null]
+let count = 0
 
-let t = input()
-while (t--) {
-  const [a, b] = input().split(' ').map(Number)
-  console.log(a + b)
+rl.on('line', function (line) {
+  // n, m을 여러줄로 나눠서 입력할 경우
+  if (!n) n = parseInt(line)
+  else if (!m) m = parseInt(line)
+  else {
+    graph.push(line.split(' ').map((data) => data))
+    count += 1
+  }
+
+  if (n === count) rl.close()
+}).on('close', function () {
+  solution(n, m, graph)
+  process.exit()
+})
+
+const solution = (n, m, graph) => {
+  console.log(n, m, graph)
 }
 ```
