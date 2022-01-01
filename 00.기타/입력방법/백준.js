@@ -17,7 +17,11 @@ const [n, ...arr] = require('fs').readFileSync('/dev/stdin').toString().trim().s
 // ex) n 입력 - 공백으로 구분된 n개의 값 입력 - m 입력 - 여러 줄에 걸쳐 m개의 값 입력
 const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(/\s+/);
 const n = input[0];
-const n_arr = input.slice(1, n+1);
-const [m, ...m_arr] = input.slice(n+1);
+const n_arr = input.slice(1, n + 1);
+const [m, ...m_arr] = input.slice(n + 1);
 
 // 2~6에서 입력받는 값들을 모두 String에서 Number로 바꾸려면 split()뒤에 .map(v => +v)를 추가
+
+// 7. vscode에서 예제파일을 실행시키는 법
+// 실행시킬 파일과 같은 디렉토리에 `input.txt`와 같은 파일을 만들어 직접 처리한다
+const input = require('fs').readFileSync('input.txt').toString().trim().split('\n');
