@@ -42,8 +42,16 @@ const [m, ...m_arr] = input.slice(n + 1);
 
 // 2~6에서 입력받는 값들을 모두 String에서 Number로 바꾸려면 split()뒤에 .map(v => +v)를 추가
 
-// 7 ~ 9번 방법은 https://degurii.tistory.com/108 참조함
-// 7. 더 간단한 방법
+// 7. vscode에서 예제파일을 실행시키는 법
+// 실행시킬 파일과 같은 디렉토리에 `input.txt`와 같은 파일을 만들어 직접 처리한다
+const input = require('fs')
+  .readFileSync('input.txt')
+  .toString()
+  .trim()
+  .split('\n');
+
+// 8 ~ 10번 방법은 https://degurii.tistory.com/108 참조함
+// 8. 더 간단한 방법
 const fs = require('fs');
 const stdin = fs.readFileSync('/dev/stdin').toString().split('\n');
 
@@ -57,7 +65,7 @@ function makeInput() {
 
 const input = makeInput();
 
-// 8. 7번을 더 줄인다면
+// 9. 8번을 더 줄인다면
 const fs = require('fs');
 const stdin = fs.readFileSync('/dev/stdin').toString().split('\n');
 
@@ -68,7 +76,7 @@ const input = (() => {
 
 let t = input();
 
-// 9. 백준은 linux환경에서 돌아가기 때문에 아래와 같이 사용할 수도 있다.
+// 10. 백준은 linux환경에서 돌아가기 때문에 아래와 같이 사용할 수도 있다.
 const fs = require('fs');
 const stdin = (
   process.platform === 'linux'
